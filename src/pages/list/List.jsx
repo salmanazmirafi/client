@@ -24,7 +24,11 @@ const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label htmlFor="">Destination</label>
-              <input type="text" placeholder={destanition} />
+              <input
+                type="text"
+                placeholder={destanition}
+                onChange={() => setDestanition()}
+              />
             </div>
             <div className="lsItem">
               <label htmlFor="">Check-in Date</label>
@@ -65,6 +69,7 @@ const List = () => {
                       min={1}
                       type="number"
                       placeholder={optionl.adult}
+                      onChange={() => setOption()}
                       className="lsOptionInput"
                     />
                   </div>

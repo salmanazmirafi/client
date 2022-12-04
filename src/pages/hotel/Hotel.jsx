@@ -76,7 +76,7 @@ const Hotel = () => {
           <button className="bookNow">Reserve or Book Now!</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
           <div className="hotelAddress">
-            <i class="fa-solid fa-location-dot"></i>
+            <i className="fa-solid fa-location-dot"></i>
             <span>Enton st 125 New york</span>
           </div>
           <span className="hotelDistance">Excellent hotel - 500m center</span>
