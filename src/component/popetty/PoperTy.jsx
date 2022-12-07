@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import "./poperty.css";
 
 const PoperTy = () => {
-  const { data, loding } = useFetch("/hotels/countByType");
+  const { data, loding } = useFetch("https://booking-app-u9py.onrender.com/api/hotels/countByType");
 
 
   const images = [
