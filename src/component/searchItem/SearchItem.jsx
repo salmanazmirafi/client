@@ -12,7 +12,7 @@ const SearchItem = () => {
         />
         <div className="siDesc">
           <h1 className="siTitle">Tower Steret Apartments</h1>
-          <span className="siDistance">50m from center</span>
+          <span className="siDistance">500m from center</span>
           <span className="siTaxiOp">Free airport taxi</span>
           <span className="siSubtitle">
             Studio Apartment with Air conditioning
