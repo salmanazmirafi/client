@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import "./featude.css";
 
 const Featude = () => {
-  const { data, loding } = useFetch(
+  const { data, loding, error } = useFetch(
     "/hotels/countByCity?cities=new,london,berline"
   );
 
@@ -13,7 +13,9 @@ const Featude = () => {
         "Loading......."
       ) : (
         <>
-          {data && (
+          {error ? (
+            "Error"
+          ) : (
             <>
               <div className="featuredItem">
                 <img
