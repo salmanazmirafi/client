@@ -14,13 +14,17 @@ const List = () => {
   const [optionl, setOption] = useState(location.state.optionl);
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
-  console.log(location);
+  const [min, setMin] = useState(undefined);
+  const [max, setMax] = useState(undefined);
 
-  const { data } = useFetch("/hotels/?featured=true&limit=2");
+  const { data, loading } = useFetch(
+    `https://booking-app-u9py.onrender.com/api/hotels?city=${destanition}&min=${
+      min || 0
+    }&max=${max || 999}`
+  );
 
-console.log(data);
+  console.log(data);
   return (
-    
     <div>
       <Navbar />
       <Header type="list" />
@@ -59,14 +63,22 @@ console.log(data);
                     <span className="lsOptionText">
                       Min price <small>per night</small>
                     </span>
-                    <input type="number" className="lsOptionInput" />
+                    <input
+                      type="number"
+                      onChange={(e) => setMin(e.target.value)}
+                      className="lsOptionInput"
+                    />
                   </div>
 
                   <div className="lsOptionItem">
                     <span className="lsOptionText">
                       Max price <small>per night</small>
                     </span>
-                    <input type="number" className="lsOptionInput" />
+                    <input
+                      type="number"
+                      onChange={(e) => setMax(e.target.value)}
+                      className="lsOptionInput"
+                    />
                   </div>
 
                   <div className="lsOptionItem">
@@ -105,14 +117,7 @@ console.log(data);
             <button>Search</button>
           </div>
           <div className="listResult">
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+            {loading ? "Loading......." : <SearchItem />}
           </div>
         </div>
       </div>

@@ -3,11 +3,11 @@ import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
-  const { data, loding } = useFetch("https://booking-app-u9py.onrender.com/api/hotels/?featured=true&limit=4");
+  const { data, loading } = useFetch("/hotels/?featured=true&limit=4");
 
   return (
     <div className="fp">
-      {loding ? "Loading........." :
+      {loading ? "Loading........." :
       <>
        { data && data.map((data)=>(
           <div className="fpItem" key={data._id}>
