@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import "./featude.css";
 
 const Featude = () => {
-  const { data } = useFetch("/api/hotels/countByCity?cities=new,london,berline");
+  const { data } = useFetch("https://booking-app-u9py.onrender.com/api/hotels/countByCity?cities=new,london,berline");
 
   return (
     <div className="featured">
