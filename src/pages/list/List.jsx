@@ -16,7 +16,7 @@ const List = () => {
   const [openDate, setOpenDate] = useState(false);
   console.log(location);
 
-  const { data, loding } = useFetch("/hotels/?featured=true&limit=2");
+  const { data } = useFetch("/hotels/?featured=true&limit=2");
 
 console.log(data);
   return (
