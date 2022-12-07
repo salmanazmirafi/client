@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
-  const { data, loading } = useFetch("/hotels/?featured=true&limit=4");
+  const { data, loading } = useFetch("https://booking-app-u9py.onrender.com/api/hotels/?featured=true&limit=4");
 
   return (
     <div className="fp">
@@ -12,7 +12,7 @@ const FeaturedProperties = () => {
        {data.map((data)=>(
           <div className="fpItem" key={data._id}>
          <img
-           src={data.photos}
+           src={data.photos[0]}
            alt=""
            className="fpImg"
          />

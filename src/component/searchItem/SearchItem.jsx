@@ -1,27 +1,24 @@
 import "./searchItem.css";
 import { Link } from "react-router-dom";
 
-const SearchItem = () => {
+const SearchItem = ({item}) => {
   return (
     <>
       <div className="searchItem">
         <img
-          src="https://cdn.pixabay.com/photo/2016/03/28/09/34/bedroom-1285156__340.jpg"
+          src={item.photos[0]}
           alt=""
           className="siImg"
         />
         <div className="siDesc">
-          <h1 className="siTitle">Tower Steret Apartments</h1>
-          <span className="siDistance">50m from center</span>
+          <h1 className="siTitle">{item.name}</h1>
+          <span className="siDistance">{item.distance}m from center</span>
           <span className="siTaxiOp">Free airport taxi</span>
           <span className="siSubtitle">
             Studio Apartment with Air conditioning
           </span>
           <span className="siFeatures">
-            500m form centenFree airpost taxiStudion Apartment with air
-            conditionaingEntire Studio.1 Bathrom.21rem 1 full bedFree
-            cancellation You can cancel later so lock in this great price today
-            detalls,
+           {item.desc}
           </span>
           <span className="siCancelOp">Free cancellation </span>
           <span className="siCancelOpSubtitle">
@@ -29,16 +26,16 @@ const SearchItem = () => {
           </span>
         </div>
         <div className="siDetails">
-          <div className="siRating">
+          {item.rating && <div className="siRating">
             <span>Excellent</span>
-            <button>8.3</button>
-          </div>
+            <button>{item.rating}</button>
+          </div>}
 
           <div className="siDetailTexts">
-            <span className="siPrice">$120</span>
+            <span className="siPrice">${item.cheapestPrice}</span>
             <span className="siTaxOp">Includes taxes and fees</span>
-            <Link to="/">
-              <button className="siCheckButton">See availability</button>
+            <Link to={`/hotels/${item._id}`}>
+              <button className="siCheckButton" >See availability</button>
             </Link>
           </div>
         </div>

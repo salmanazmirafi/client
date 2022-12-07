@@ -17,13 +17,17 @@ const List = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const { data, loading } = useFetch(
-    `https://booking-app-u9py.onrender.com/api/hotels?city=${destanition}&min=${
+  const { data, loading, reFetch } = useFetch(
+    `https://booking-app-u9py.onrender.com/api/hotels/?city=${destanition}&min=${
       min || 0
-    }&max=${max || 999}`
+    }&max=${max || 999} `
   );
 
-  console.log(data);
+  const handel = () => {
+    reFetch();
+  };
+
+
   return (
     <div>
       <Navbar />
@@ -37,7 +41,7 @@ const List = () => {
               <input
                 type="text"
                 placeholder={destanition}
-                onChange={() => setDestanition()}
+                onChange={(e) => setDestanition(e.target.value)}
               />
             </div>
             <div className="lsItem">
@@ -114,10 +118,20 @@ const List = () => {
                 </div>
               </div>
             </div>
-            <button>Search</button>
+            <button onClick={handel}>Search</button>
           </div>
           <div className="listResult">
-            {loading ? "Loading......." : <SearchItem />}
+            {loading ? (
+              "Loading......."
+            ) : (
+              <>
+                {data.map((item) => (
+                  <>
+                    <SearchItem item={item} key={item._id} />
+                  </>
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>
